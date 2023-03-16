@@ -12,6 +12,7 @@ mongoose.connect('mongodb://hamras:hamras@ac-we0xb7o-shard-00-00.m90gwwc.mongodb
 
 const app = express();
 
+
 // Set up middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -70,4 +71,4 @@ app.get('/history', async (req, res) => {
 
 
 // Start the server
-app.listen(3000, () => console.log('Server started'));
+app.listen(5000, () => console.log('Server started'));
