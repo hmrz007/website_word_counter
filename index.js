@@ -5,8 +5,8 @@ const { WordCount, countWords } = require('./wordcount');
 
 
 
-// Connect to the database
-mongoose.connect('mongodb://localhost:27017/wordcount', { useNewUrlParser: true, useUnifiedTopology: true })
+// Connect to the database   mongodb://localhost:27017/wordcount
+mongoose.connect('mongodb://hamras:hamras@ac-we0xb7o-shard-00-00.m90gwwc.mongodb.net:27017,ac-we0xb7o-shard-00-01.m90gwwc.mongodb.net:27017,ac-we0xb7o-shard-00-02.m90gwwc.mongodb.net:27017/?ssl=true&replicaSet=atlas-5uodst-shard-0&authSource=admin&retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to database'))
     .catch(err => console.log(err));
 
@@ -35,8 +35,7 @@ app.post('/wordcount', (req, res) => {
         return;
     }
 
-    countWords(url)
-        .then(count => {
+    countWords(url).then(count => {
             const search = new WordCount({
                 url,
                 count
