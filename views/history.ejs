@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search History</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <h2 style="text-align: center; margin: 10px;" >SEARCH HISTORY</h2>
+    <% if (searches.length===0) { %>
+        <p>No searches found.</p>
+        <% } else { %>
+            <div class="container p-3">
+                <table class="table table-light table-striped border">
+                    <thead >
+                        <tr style="font-style: italic;">
+                            <th scope="col" style="text-align: center;">URL</th>
+                            <th scope="col">WORD COUNT</th>
+                            <th scope="col">DATE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% searches.forEach(search=> { %>
+                            <tr>
+                                <td>
+                                    <%= search.url %>
+                                </td>
+                                <td>
+                                    <%= search.count %>
+                                </td>
+                                <td>
+                                    <%= search.createdAt.toLocaleString() %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <% } %>
+                    <a href="/">Back to home</a>
+            </div>
+</body>
+
+</html>
